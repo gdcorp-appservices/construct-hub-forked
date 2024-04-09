@@ -229,7 +229,7 @@ exports[`CodeArtifact repository 1`] = `
             ],
             "Essential": true,
             "Image": {
-              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:2455f4813b19e0cae053081e9a47436b1d8dbf0eed8c2b3e99342f3bf9599a9e",
+              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:5cdddc8e9ba4dc649073202bfdd00bf20ce5c5fadd9766a0f1bbc95444fad81b",
             },
             "LogConfiguration": {
               "LogDriver": "awslogs",
@@ -2544,7 +2544,7 @@ exports[`VPC Endpoints 1`] = `
             ],
             "Essential": true,
             "Image": {
-              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:2455f4813b19e0cae053081e9a47436b1d8dbf0eed8c2b3e99342f3bf9599a9e",
+              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:5cdddc8e9ba4dc649073202bfdd00bf20ce5c5fadd9766a0f1bbc95444fad81b",
             },
             "LogConfiguration": {
               "LogDriver": "awslogs",
@@ -5021,7 +5021,7 @@ exports[`VPC Endpoints and CodeArtifact repository 1`] = `
             ],
             "Essential": true,
             "Image": {
-              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:2455f4813b19e0cae053081e9a47436b1d8dbf0eed8c2b3e99342f3bf9599a9e",
+              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:5cdddc8e9ba4dc649073202bfdd00bf20ce5c5fadd9766a0f1bbc95444fad81b",
             },
             "LogConfiguration": {
               "LogDriver": "awslogs",
@@ -7332,7 +7332,7 @@ exports[`basic use 1`] = `
             ],
             "Essential": true,
             "Image": {
-              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:2455f4813b19e0cae053081e9a47436b1d8dbf0eed8c2b3e99342f3bf9599a9e",
+              "Fn::Sub": "\${AWS::AccountId}.dkr.ecr.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-\${AWS::AccountId}-\${AWS::Region}:5cdddc8e9ba4dc649073202bfdd00bf20ce5c5fadd9766a0f1bbc95444fad81b",
             },
             "LogConfiguration": {
               "LogDriver": "awslogs",

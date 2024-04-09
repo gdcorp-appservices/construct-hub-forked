@@ -29,6 +29,7 @@ import {
 } from 'aws-cdk-lib/aws-stepfunctions-tasks';
 import { Construct } from 'constructs';
 import { Transliterator as Container, MEMORY_LIMIT } from './transliterator';
+import { PrivateNpmRegistryProps } from './util';
 import { Repository } from '../../codeartifact/repository';
 import { Monitoring } from '../../monitoring';
 import * as s3 from '../../s3';
@@ -45,6 +46,11 @@ export interface TransliteratorProps {
    * The CodeArtifact registry to use for regular operations.
    */
   readonly codeArtifact?: Repository;
+
+  /**
+   * The private NPM registry to download private NPM dependencies.
+   */
+  readonly privateNpmRegistryProps?: PrivateNpmRegistryProps;
 
   /**
    * The monitoring handler to register alarms with.
@@ -153,6 +159,14 @@ export class Transliterator extends Construct {
         props.codeArtifact.repositoryDomainOwner;
       environment.CODE_ARTIFACT_REPOSITORY_ENDPOINT =
         props.codeArtifact.repositoryNpmEndpoint;
+    }
+
+    // Set up the private NPM registry environment variables.
+    if (props.privateNpmRegistryProps) {
+      environment.PRIVATE_NPM_REGISTRY_URL =
+        props.privateNpmRegistryProps.privateNpmRegistryUrl;
+      environment.PRIVATE_NPM_REGISTRY_TOKEN =
+        props.privateNpmRegistryProps.privateNpmRegistryToken;
     }
 
     this.logGroup = new LogGroup(this, 'LogGroup', {

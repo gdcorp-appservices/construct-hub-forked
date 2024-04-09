@@ -49,6 +49,7 @@ import {
   UNPROCESSABLE_PACKAGE_ERROR_NAME,
 } from '../shared/constants';
 import { Transliterator, TransliteratorVpcEndpoints } from '../transliterator';
+import { PrivateNpmRegistryProps } from '../transliterator/util';
 
 /**
  * This retry policy is used for all items in the state machine and allows ample
@@ -104,6 +105,11 @@ export interface OrchestrationProps {
    * The CodeArtifact registry to use for regular operations.
    */
   readonly codeArtifact?: Repository;
+
+  /**
+   * The private NPM registry to download private NPM dependencies.
+   */
+  readonly privateNpmRegistryProps?: PrivateNpmRegistryProps;
 
   /**
    * The monitoring handler to register alarms with.
