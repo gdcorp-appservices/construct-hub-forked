@@ -39,6 +39,7 @@ jobs:
     runs-on:
       group: 7269-sggappservicesru
       labels:
+        - 7269-sggappservicesru
         - self-hosted
 
     # Variables defined here are available to all steps in this entire workflow job
