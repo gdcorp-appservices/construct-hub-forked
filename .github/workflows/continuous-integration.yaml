@@ -39,6 +39,7 @@ jobs:
     runs-on:
       group: 7920-godaddyconstruc0
       labels:
+        - 7920-godaddyconstruc0
         - self-hosted
 
     # Variables defined here are available to all steps in this entire workflow job
