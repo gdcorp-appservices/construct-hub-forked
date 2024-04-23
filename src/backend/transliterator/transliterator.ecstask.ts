@@ -10,7 +10,7 @@ import * as docgen from 'jsii-docgen';
 import { MarkdownRenderer } from 'jsii-docgen/lib/docgen/render/markdown-render';
 import { JsiiEntity } from 'jsii-docgen/lib/docgen/schema';
 import { MetricName, METRICS_NAMESPACE } from './constants';
-import { writeFile } from './util';
+import { setNpmConfig, writeFile } from './util';
 import type { S3ObjectVersion, TransliteratorInput } from '../payload-schema';
 import * as aws from '../shared/aws.lambda-shared';
 import { logInWithCodeArtifact } from '../shared/code-artifact.lambda-shared';
@@ -49,11 +49,9 @@ export function handler(
   // and that'll bail out on EROFS if that fails.
   return ensureWritableHome(async () => {
     const endpoint = process.env.CODE_ARTIFACT_REPOSITORY_ENDPOINT;
-    if (!endpoint) {
-      console.log(
-        "No CodeArtifact endpoint configured - using npm's default registry"
-      );
-    } else {
+    const privateArtifactorySecretArn = process.env.ARTIFACTORY_SECRET_ARN;
+    if (endpoint) {
+      // Use CodeArtifact registry, setting up url and token
       console.log(`Using CodeArtifact registry: ${endpoint}`);
       const domain = requireEnv('CODE_ARTIFACT_DOMAIN_NAME');
       const domainOwner = process.env.CODE_ARTIFACT_DOMAIN_OWNER;
@@ -64,6 +62,15 @@ export function handler(
         domainOwner,
         apiEndpoint,
       });
+    } else if (privateArtifactorySecretArn) {
+      // Use private NPM registry, setting up url and token
+      console.log(`Using private NPM registry`);
+      await setNpmConfig(privateArtifactorySecretArn);
+    } else {
+      // No AWS CodeArtifact or private NPM registry set, fall back to use npm's default registry (public)
+      console.log(
+        "No CodeArtifact endpoint or private npm configured - using npm's default public registry"
+      );
     }
 
     // Set up NPM shared cache directory (https://docs.npmjs.com/cli/v7/using-npm/config#cache)

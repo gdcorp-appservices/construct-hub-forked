@@ -268,6 +268,9 @@ export const handler = metricScope(
         licenseText: licenseText?.toString('utf-8'),
         packageLinks,
         packageTags,
+        links: payload.metadata?.npmPackageUrl
+          ? { npm: payload.metadata.npmPackageUrl }
+          : undefined,
       };
 
       const { assemblyKey, metadataKey, packageKey } = constants.getObjectKeys(

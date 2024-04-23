@@ -11,12 +11,12 @@ init-app: clean
 	npm ci --userconfig=.npmrcCI -f
 
 .PHONY: build-app
-build-app: clean bump-version init-app
+build-app: clean init-app
     # This is the command to build the app which includes linting, testing, and building the app
 	yarn build
 
 .PHONY: bump-version
-bump-version:
+bump-version: build-app
 	echo "Using version: $(VERSION)"
 	yarn bump
 

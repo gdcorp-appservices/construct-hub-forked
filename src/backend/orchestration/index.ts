@@ -106,6 +106,11 @@ export interface OrchestrationProps {
   readonly codeArtifact?: Repository;
 
   /**
+   * The private NPM registry secret ARN which contains the Artifactory URL and token.
+   */
+  readonly artifactorySecretArn?: string;
+
+  /**
    * The monitoring handler to register alarms with.
    */
   readonly monitoring: Monitoring;

@@ -12,12 +12,20 @@ let _sqs: AWS.SQS | undefined;
 let _sfn: AWS.StepFunctions | undefined;
 let _lambda: AWS.Lambda | undefined;
 let _codeArtifact: AWS.CodeArtifact | undefined;
+let _secretsManager: AWS.SecretsManager | undefined;
 
 export function ecs(): AWS.ECS {
   if (_ecs == null) {
     _ecs = new AWS.ECS();
   }
   return _ecs;
+}
+
+export function secretsManager(): AWS.SecretsManager {
+  if (_secretsManager == null) {
+    _secretsManager = new AWS.SecretsManager();
+  }
+  return _secretsManager;
 }
 
 export function s3(): AWS.S3 {

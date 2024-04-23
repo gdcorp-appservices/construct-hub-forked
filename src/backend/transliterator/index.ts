@@ -47,6 +47,11 @@ export interface TransliteratorProps {
   readonly codeArtifact?: Repository;
 
   /**
+   * The private NPM registry secret ARN which contains the Artifactory URL and token.
+   */
+  readonly artifactorySecretArn?: string;
+
+  /**
    * The monitoring handler to register alarms with.
    */
   readonly monitoring: Monitoring;
@@ -153,6 +158,11 @@ export class Transliterator extends Construct {
         props.codeArtifact.repositoryDomainOwner;
       environment.CODE_ARTIFACT_REPOSITORY_ENDPOINT =
         props.codeArtifact.repositoryNpmEndpoint;
+    }
+
+    // Set up the private NPM registry environment variables.
+    if (props.artifactorySecretArn) {
+      environment.ARTIFACTORY_SECRET_ARN = props.artifactorySecretArn;
     }
 
     this.logGroup = new LogGroup(this, 'LogGroup', {
