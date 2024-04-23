@@ -136,7 +136,7 @@
     "cdk-watchful": "0.6.458",
     "cdklabs-projen-project-types": "^0.1.189",
     "changelog-filename-regex": "^2.0.1",
-    "construct-hub-webapp": "^0.1.1028",
+    "construct-hub-webapp": "^0.1.1077",
     "constructs": "10.0.5",
     "dotenv": "^16.4.5",
     "esbuild": "^0.20.1",
