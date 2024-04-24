@@ -37,7 +37,7 @@ concurrency:
 jobs:
   cicd:
     runs-on:
-      group: 7920-godaddyconstruc0
+      group: 7269-sggappservicesru
       labels:
         - self-hosted
 
